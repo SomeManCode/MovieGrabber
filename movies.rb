@@ -6,8 +6,9 @@ class Movie
   # Add attr_accessors for the values you want to store...
   attr_accessor :title, :year, :rating, :genre, :director, :actors, :plot, :poster_url
 
-  def self.get_film_info(name)    
-    imdb_data = HTTParty.get("http://www.omdbapi.com/?t=#{name}")
+  def self.get_film_info(name)
+    name2 = name.gsub(" ", "%20")    
+    imdb_data = HTTParty.get("http://www.omdbapi.com/?t=#{name2}")
     movie_info = JSON(imdb_data)
     
     # Create a Movie object...

@@ -1,15 +1,22 @@
 require 'sinatra'
+require 'sqlite3'
 
 require_relative 'movies'
 
 get '/' do
-  # Just have a nice welcome page
+	erb :index	
 end
 
-post '/film' do
-  # Search for a Movie
-  # HINT - what is in params ?
-  Movie.get_film_info(name)
-
-  # Display the movie in the page
+post '/search' do
+	# movie = Movie.get_film_info[params[:search]]
+	movie = Movie.get_film_info(params[:search])
+	@title = movie.title
+	@year = movie.year
+	@rating = movie.rating
+	@genre = movie.genre
+	@director = movie.director
+	@actors = movie.actors
+	@plot = movie.plot
+	@poster_url = movie.poster_url
+	erb :results
 end
