@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'sqlite3'
+require 'pry'
 
 require_relative 'movies'
 
@@ -8,7 +9,6 @@ get '/' do
 end
 
 post '/search' do
-	# movie = Movie.get_film_info[params[:search]]
 	movie = Movie.get_film_info(params[:search])
 	@title = movie.title
 	@year = movie.year

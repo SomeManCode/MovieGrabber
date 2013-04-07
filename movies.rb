@@ -18,7 +18,7 @@ class Movie
     m.rating = movie_info["Rating"]
     m.genre = movie_info["Genre"]
     m.director = movie_info["Director"]
-    m.actors = movie_info["Actors"].split(",")
+    m.actors = movie_info["Actors"]
     m.plot = movie_info["Plot"]
     m.poster_url = movie_info["Poster"]
     m
